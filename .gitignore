@@ -1,6 +1,7 @@
 # pixi environments
-.pixi
+.pixi*
 *.egg-info
+pixi.lock
 
 # Data files that should be ignored by Git
 *.tiff

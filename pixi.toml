@@ -1,0 +1,52 @@
+[workspace]
+authors = ["Vishruth Mullapudi <vishruth.mullapudi@utsouthwestern.edu>"]
+channels = ["conda-forge"]
+name = "MorphoCA"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[system-requirements]
+# This is needed to workaround the old version of `glibc` on the compute cluster. 
+# Can remove this and use the default `glibc` version once the cluster is updated
+# or on other machines
+libc = { family = "glibc", version = "2.17" }
+
+[feature.gpu.system-requirements]
+cuda = "12.4"
+
+[dependencies]
+jupyter = ">=1.1.1,<2"
+jupyter_nbextensions_configurator = ">=0.6.1,<0.7"
+numpy = ">=2.3.2,<3"
+ipywidgets = ">=8.1.7,<9"
+matplotlib = ">=3.10.5,<4"
+seaborn = ">=0.13.2,<0.14"
+python=">=3.12"
+
+[feature.segmentation.pypi-dependencies]
+torch = ">=2.5.1"
+torchvision = ">=0.20.1, <0.23"
+cellpose = ">=4.0.6, <5"
+pims-nd2 = ">=1.1, <2"
+
+[feature.segmentation.dependencies]
+plotly = ">=6.2.0,<7"
+napari = ">=0.5.0,<0.6"
+pyqt = ">=5.15.11,<6"
+napari-bioformats = ">=0.1.2,<0.2"
+pims = ">=0.7,<0.8"
+zarr = ">=3.1.1,<4"
+dask = ">=2025.7.0,<2026"
+tifffile = ">=2025.6.11,<2026"
+
+[feature.gpu.pypi-dependencies]
+torch = { version = ">=2.5.1", index = "https://download.pytorch.org/whl/cu124" }
+torchvision = { version = ">=0.20.1", index = "https://download.pytorch.org/whl/cu124" }
+cellpose = ">=4.0.6, <5"
+
+[environments]
+
+segmentation = ["segmentation"]
+segmentation-gpu = ["segmentation", "gpu"]
