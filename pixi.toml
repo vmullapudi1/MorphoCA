@@ -11,7 +11,7 @@ version = "0.1.0"
 # This is needed to workaround the old version of `glibc` on the compute cluster. 
 # Can remove this and use the default `glibc` version once the cluster is updated
 # or on other machines
-libc = { family = "glibc", version = "2.17" }
+#libc = { family = "glibc", version = "2.17" }
 
 [feature.gpu.system-requirements]
 cuda = "12.4"
