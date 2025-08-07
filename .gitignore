@@ -1,0 +1,7 @@
+# pixi environments
+.pixi
+*.egg-info
+
+# Data files that should be ignored by Git
+*.tiff
+*.nd2
